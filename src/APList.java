@@ -58,6 +58,8 @@ public class APList {
 		return -1;
 	}
 	
-	
+	public String getLongest(){
+		return longestString;
+	}
 
 }
