@@ -17,30 +17,30 @@ public class APList {
 	}
 
 	public void addEnd(String input) {
-		if(input.length() > longestString.length()){
+		if (input.length() > longestString.length()) {
 			longestStringIndex = nextFreeIndex;
 			longestString = input;
 		}
 		list[nextFreeIndex] = input;
-		nextFreeIndex ++;
-		
-		if(nextFreeIndex >= list.length){
+		nextFreeIndex++;
+
+		if (nextFreeIndex >= list.length) {
 			String[] newList = new String[list.length + addIndexLength];
-			for(int i = 0; i < list.length; i ++){
+			for (int i = 0; i < list.length; i++) {
 				newList[i] = list[i];
 			}
 			list = newList;
 		}
-		
+
 	}
-	
-	public void removeEnd(){
-		nextFreeIndex --;
+
+	public void removeEnd() {
+		nextFreeIndex--;
 		list[nextFreeIndex] = null;
-		if(nextFreeIndex == longestStringIndex){
+		if (nextFreeIndex == longestStringIndex) {
 			String newLongestString = "";
-			for(int i = 0; i< nextFreeIndex; i ++){
-				if(list[i].length() > newLongestString.length()){
+			for (int i = 0; i < nextFreeIndex; i++) {
+				if (list[i].length() > newLongestString.length()) {
 					longestStringIndex = i;
 					newLongestString = list[i];
 				}
@@ -48,17 +48,17 @@ public class APList {
 			longestString = newLongestString;
 		}
 	}
-	
-	public int indexOf(String input){
-		for(int i = 0; i < nextFreeIndex; i ++){
-			if(list[i].equals(input)){
+
+	public int indexOf(String input) {
+		for (int i = 0; i < nextFreeIndex; i++) {
+			if (list[i].equals(input)) {
 				return i;
 			}
 		}
 		return -1;
 	}
-	
-	public String getLongest(){
+
+	public String getLongest() {
 		return longestString;
 	}
 
