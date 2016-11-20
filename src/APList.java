@@ -25,16 +25,23 @@ public class APList {
 		nextFreeIndex++;
 
 		if (nextFreeIndex >= list.length) {
-			String[] newList = new String[list.length + addIndexLength];
-			for (int i = 0; i < list.length; i++) {
-				newList[i] = list[i];
-			}
-			list = newList;
+			extendList();
 		}
 
 	}
 
+	private void extendList() {
+		String[] newList = new String[list.length + addIndexLength];
+		for (int i = 0; i < list.length; i++) {
+			newList[i] = list[i];
+		}
+		list = newList;
+	}
+
 	public void removeEnd() {
+		if (nextFreeIndex == 0) {
+			return;
+		}
 		nextFreeIndex--;
 		list[nextFreeIndex] = null;
 		if (nextFreeIndex == longestStringIndex) {
